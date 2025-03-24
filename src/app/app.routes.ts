@@ -3,9 +3,11 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ExamenComponent } from './components/examen/examen.component';
 
 export const routes: Routes = [
     { path: '', component: InicioComponent },
     { path: 'login', component: LoginComponent },
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+    { path: 'examenes', component: ExamenComponent, canActivate: [AuthGuard] },
 ];
