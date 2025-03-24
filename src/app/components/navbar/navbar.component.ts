@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import { BackendService } from '../../services/backend.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -9,4 +10,10 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  constructor(private router: Router) {}
+
+  cerrarSesion(): void {
+    localStorage.removeItem('userData'); 
+    this.router.navigate(['/login']); 
+  }
 }
