@@ -2,24 +2,41 @@
     <div class="logo">
         <img src="/assets/img/logo-white.png"  alt="">
     </div>
-    <ul>
+    <ul *ngIf="perfilUsuario === 1">
         <li>
-            <a routerLink="/home">
+            <a (click)="Home()">
                 <img src="/assets/img/home.png" alt="Home">Home
             </a>
         </li>
         <li>
-            <a routerLink="/examenes">
+            <a (click)="Examenes()">
                 <img src="/assets/img/Examen.png" alt="Examen">Examenes
             </a>
         </li>
         <li>
-            <a routerLink="/practica-ia" class="ia">
+            <a (click)="IA()" class="ia">
                 <img src="/assets/img/IA (1).png" alt="IA">Practica
             </a>
         </li>
     </ul>
+    <ul *ngIf="perfilUsuario === 0">
+        <li>
+            <a (click)="Home()">
+                <img src="/assets/img/home.png" alt="Home">Home
+            </a>
+        </li>
+        <li>
+            <a (click)="Alumnos()">
+                <img src="/assets/img/person.png" alt="Alumnos">Alumnos
+            </a>
+        </li>
+        <li>
+            <a (click)="crearExamen()">
+                <img src="/assets/img/Examen.png" alt="Examen">Examenes
+            </a>
+        </li>
+    </ul>
     <ul class="logout">
-        <li><a (click)="cerrarSesion()">Cerrar Sesión</a></li>
+        <li><a (click)="cerrarSesion()"><img src="/assets/img/exit.png" alt="Examen">Cerrar Sesión</a></li>
     </ul>
 </nav>

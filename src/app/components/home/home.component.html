@@ -1,11 +1,58 @@
 <app-navbar></app-navbar>  
 <div class="main-content">
-    <h1>!{{nombre}} Bienvenido a WE-REPASS IA¡</h1>
-    <div class="info-box">
-        <p>
-            Estamos aquí para ayudarte a maximizar tu aprendizaje y mejorar tu rendimiento académico. 
-            Con nuestra inteligencia artificial, podrás repasar de manera personalizada y adaptada a tus necesidades. 
-            ¡Comienza a potenciar tu conocimiento y alcanza tus metas con facilidad!
-        </p>
+    <div class="info">
+        <h1>¡{{nombre}} Bienvenido a WE-REPASS IA!</h1>
+        <div class="info-box">
+            <p>
+                Estamos aquí para ayudarte a maximizar tu aprendizaje y mejorar tu rendimiento académico. 
+                Con nuestra inteligencia artificial, podrás repasar de manera personalizada y adaptada a tus necesidades. 
+                ¡Comienza a potenciar tu conocimiento y alcanza tus metas con facilidad!
+            </p>
+        </div>
+    </div>
+    
+    <div class="examen-wrapper">
+        <div class="examen-option">
+            <img class="icon" src="/assets/img/examen-pendiente.png" alt="Examen">
+            <div class="examen-info">
+                <h2>Examen Pendiente</h2>
+                <p class="examen">Completa tus exámenes pendientes</p>
+            </div>
+            <img class="enter-icon" src="/assets/img/acceder.png" alt="Entrar">
+        </div>
+    </div>
+
+    <div class="body">
+        <div class="cards">
+            <div class="card">
+                <div class="card-title">
+                    <h3>EMPIEZA A PRACTICAR</h3>
+                </div>
+                <div class="card-text">
+                    <img src="/assets/img/image-removebg-preview 1.png" alt="Imagen 1">
+
+                    <p>Completa los desafios para mejorar en tus puntos debiles</p>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 60%;"></div>
+                    </div>
+                    <p class="progress-text">Completado 60%</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">
+                    <h3>REFUERZA TU CONOCIMIENTO</h3>
+                </div>
+                <div class="card-text">
+                    <img src="/assets/img/libros.png" alt="Imagen 2">
+
+                    <p>Desafíate a seguir aprendiendo, explora nuevas perspectivas y pon a prueba lo que sabes.</p>
+                </div>
+                <div class="boton">
+                    <button (click)="IA()" class="ia">DESAFIATE</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
