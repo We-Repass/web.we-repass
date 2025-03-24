@@ -1,15 +1,42 @@
 <div class="login-container">
     <div class="login-card">
         <h2>Iniciar Sesión</h2>
-        <form>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <label for="user">Usuario</label>
-            <input type="text" id="user" placeholder="Ingrese su usuario"
-            maxlength="8" required (input)="validateUserInput($event)">
-        
-            <label for="password">Contraseña</label>
-            <input type="password" id="password" placeholder="Ingrese su contraseña" required>
+            <input 
+                type="text" 
+                id="user" 
+                placeholder="Ingrese su usuario"
+                maxlength="8"
+                required 
+                formControlName="dni"
+                (input)="validateUserInput($event)"
+            >
+            <div *ngIf="loginForm.get('dni')?.invalid && loginForm.get('dni')?.touched" class="error">
+                DNI es requerido y debe ser numérico.
+            </div>
 
-            <button type="submit" (click)="Home()">Ingresar</button>
+            <label for="password">Contraseña</label>
+            <div class="password-container">
+                <input 
+                    [type]="showPassword ? 'text' : 'password'" 
+                    id="password" 
+                    placeholder="Ingrese su contraseña" 
+                    required 
+                    formControlName="contrasenia"
+                >
+                <span class="eye-icon" (click)="togglePasswordVisibility()">
+                    <img *ngIf="!showPassword" src="assets/img/eye-closed.png" alt="Mostrar">
+                    <img *ngIf="showPassword" src="assets/img/eye-open.png" alt="Ocultar">
+                </span>
+            </div>
+            <div *ngIf="loginForm.get('contrasenia')?.invalid && loginForm.get('contrasenia')?.touched" class="error">
+                La contraseña es requerida.
+            </div>
+
+            <button type="submit" [disabled]="loginForm.invalid">Ingresar</button>
+
+            <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
         </form>
     </div>
 </div>

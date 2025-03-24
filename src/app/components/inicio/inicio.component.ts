@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,11 @@ import { Router } from '@angular/router';
   styleUrl: './inicio.component.css'
 })
 export class InicioComponent {
-  constructor(private router: Router) {}
+
+  
+  constructor(
+    private router: Router,
+  ) {}
 
   Login() {
     console.log('Botón clickeado. Intentando redirigir a /login...');
