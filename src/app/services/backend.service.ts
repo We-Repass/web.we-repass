@@ -26,7 +26,17 @@ export class BackendService {
   }
   
     logout(): void {
-    localStorage.removeItem('userData'); // Eliminar datos de usuario
-    this.router.navigate(['/login']); // Redirigir a la página de login
+    localStorage.removeItem('userData'); 
+    this.router.navigate(['/login']); 
+  }
+
+  verSemana(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/ver/semana`);
+  }
+
+  guardarExamen(examen: any[]): Observable<string> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.post<string>(`${this.apiUrl}/crear/examen`, examen, { headers });
   }
 }
+

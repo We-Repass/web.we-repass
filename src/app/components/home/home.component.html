@@ -11,14 +11,14 @@
         </div>
     </div>
     
-    <div class="examen-wrapper" *ngIf="estado == 0">
+    <div class="examen-wrapper" *ngIf="estado == 1">
         <div class="examen-option">
             <img class="icon" src="/assets/img/examen-pendiente.png" alt="Examen">
             <div class="examen-info">
                 <h2>Examen Pendiente</h2>
                 <p class="examen">Completa tus exámenes pendientes</p>
             </div>
-            <img class="enter-icon" src="/assets/img/acceder.png" alt="Entrar">
+            <img class="enter-icon" src="/assets/img/acceder.png" alt="Entrar" (click)="entrar()">
         </div>
     </div>
 
