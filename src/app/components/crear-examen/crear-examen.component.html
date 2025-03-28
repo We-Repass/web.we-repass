@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+
+<div class="main-content">
+  <div class="combo-container">
+    <label for="semanaSelect">Seleccionar Semana:</label>
+    <select id="semanaSelect" [(ngModel)]="selectedSemana">
+      <option *ngFor="let semana of semanas" [value]="semana.id">
+        Semana {{ semana.nrosemana }}
+      </option>
+    </select>
+    
+  </div>
+  <div *ngFor="let pregunta of preguntas; let i = index" class="form-container">
+    <h2>Pregunta {{ i + 1 }}</h2>
+    
+    <div class="select-container">
+      <div>
+        <label for="temaSelect">Seleccionar Tema:</label>
+        <select id="temaSelect" [(ngModel)]="pregunta.tema">
+          <option *ngFor="let tema of temas" [value]="tema">{{ tema }}</option>
+        </select>
+      </div>
+  
+      <div>
+        <label for="dificultadSelect">Seleccionar Dificultad:</label>
+        <select id="dificultadSelect" [(ngModel)]="pregunta.dificultad">
+          <option *ngFor="let dificultad of dificultades" [value]="dificultad">{{ dificultad }}</option>
+        </select>
+      </div>
+    </div>
+  
+    <label for="pregunta">Pregunta:</label>
+    <input id="pregunta" type="text" [(ngModel)]="pregunta.pregunta" placeholder="Escribe tu pregunta aquí..." />
+  
+    <div class="opciones-container">
+      <label>Opciones:</label>
+      <div *ngFor="let opcion of pregunta.opciones; let j = index" class="opcion-item">
+        <input type="radio" name="respuesta{{ i }}" [value]="opcion" [(ngModel)]="pregunta.respuesta" />
+        <input type="text" [(ngModel)]="pregunta.opciones[j]" placeholder="Escribe una opción..." />
+        <button (click)="eliminarOpcion(i, j)">❌</button>
+      </div>
+    </div>
+  
+    <button class="btn-agregar" (click)="agregarOpcion(i)">+ Agregar Opción</button>
+  </div>
+  
+
+  <button class="btn-guardar" (click)="guardarPreguntas()">Guardar Examen</button>
+</div>
