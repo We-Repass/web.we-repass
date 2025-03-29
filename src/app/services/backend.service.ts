@@ -38,5 +38,10 @@ export class BackendService {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.post<string>(`${this.apiUrl}/crear/examen`, examen, { headers });
   }
+
+  listarUsuarios(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/usuario/lista/alumnos`);
+  }
+
 }
 
