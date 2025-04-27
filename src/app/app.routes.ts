@@ -6,6 +6,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { ExamenComponent } from './components/examen/examen.component';
 import { CrearExamenComponent } from './components/crear-examen/crear-examen.component';
 import { AlumnosComponent } from './components/alumnos/alumnos.component';
+import { VerExamenComponent } from './components/ver-examen/ver-examen.component';
 
 export const routes: Routes = [
     { path: '', component: InicioComponent },
@@ -14,4 +15,6 @@ export const routes: Routes = [
     { path: 'examenes', component: ExamenComponent, canActivate: [AuthGuard] },
     { path: 'crear-examen', component: CrearExamenComponent, canActivate: [AuthGuard] },
     { path: 'alumnos', component: AlumnosComponent, canActivate: [AuthGuard] },
+    { path: 'examen', component: VerExamenComponent, canActivate: [AuthGuard] },
+
 ];

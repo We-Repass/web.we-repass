@@ -43,5 +43,18 @@ export class BackendService {
     return this.http.get<any[]>(`${this.apiUrl}/usuario/lista/alumnos`);
   }
 
+  verExamen(idsemana: number): Observable<any> {
+    return this.http.post(`${this.apiUrl}/ver/examen`, { idsemana });
+  }
+
+  guardarRespuesta(respuestas: { idpregunta: number, idsemana: number, idusuario: number, respuesta: string }[]) {
+    return this.http.post(`${this.apiUrl}/guardar/respuesta`, respuestas);
+  }  
+
+  verNota(idusuario: number): Observable<any[]> {
+    return this.http.post<any[]>(`${this.apiUrl}/ver/nota`, { idusuario });
+  }
+  
+  
 }
 
