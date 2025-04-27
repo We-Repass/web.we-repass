@@ -1,0 +1,41 @@
+<div class="examen-container">
+  <div *ngIf="tiempoRestante > 0">
+    <p>Tiempo restante: {{ tiempoRestante | secondsToTime }}</p>
+  </div>
+
+  <div *ngFor="let pregunta of preguntas; let i = index" class="card">
+    <div class="card-header">
+      <div class="pregunta-id">Pregunta {{ i + 1 }}</div>
+      <div class="nota">{{ pregunta.nota }} pts</div>
+    </div>
+    <div class="card-body">
+      <p class="pregunta-text">{{ pregunta.pregunta }}</p>
+      <div class="opciones">
+        <div *ngFor="let opcion of pregunta.opciones">
+          <label>
+            <input 
+              type="radio" 
+              name="pregunta{{ pregunta.id }}" 
+              [value]="opcion"
+              (change)="capturarRespuesta(pregunta.id, opcion)" />
+            {{ opcion }}
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="submit-btn" (click)="enviarExamen()">Enviar Examen</button>
+</div>
+
+<!-- Modal de tiempo agotado -->
+<div *ngIf="mostrarModal" class="modal-overlay">
+  <div class="modal-content">
+    <img class="icon" src="/assets/img/tiempo.png" alt="Examen">
+    <h2>EL TIEMPO SE HA ACABADO</h2>
+    <p>Has llegado al límite de tiempo para este examen.</p>
+    <p>¡Gracias por tu dedicación y esfuerzo durante esta evaluación!</p>
+    <button (click)="enviarExamen()">FINALIZAR EXAMEN</button>
+  </div>
+</div>
+

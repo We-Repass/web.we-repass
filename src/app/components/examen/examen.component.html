@@ -3,25 +3,25 @@
 <div class="main-content">
     <div class="semanas-container">
         <div *ngFor="let semana of semanas">
-            <h2>{{ semana }}</h2>
-            <div class="examen-wrapper" *ngIf="estado == null"> 
+            <h2>{{ 'Semana ' + semana.idsemana }}</h2>
+            <div class="examen-wrapper" *ngIf="semana.estado === 0">
                 <div class="examen-option">
                     <img class="icon" src="/assets/img/examen-pendiente.png" alt="Examen">
                     <div class="examen-info">
                         <h2 class="pendiente">Examen Pendiente</h2>
                         <p class="examen">Completa tus exámenes pendientes</p>
                     </div>
-                    <img class="enter-icon" src="/assets/img/acceder.png" alt="Entrar" (click)="entrar()">
+                    <img class="enter-icon" src="/assets/img/acceder.png" alt="Entrar" (click)="entrar(semana.idsemana)">
                 </div>
             </div>
-            <div class="examen-wrapper" *ngIf="estado == 1">
+            <div class="examen-wrapper" *ngIf="semana.estado === 1">
                 <div class="examen-option">
-                    <img class="icon" src="/assets/img/examen-pendiente.png" alt="Examen" >
+                    <img class="icon" src="/assets/img/examen-pendiente.png" alt="Examen">
                     <div class="examen-info">
                         <h2 class="completo">Examen Completado</h2>
                         <p class="examen">Examen completado. ¡Gracias por tu participación!</p>
                     </div>
-                    <div class="nota-circle">{{ nota }}</div>
+                    <div class="nota-circle">{{ semana.nota }}</div>
                 </div>
             </div>
         </div>
