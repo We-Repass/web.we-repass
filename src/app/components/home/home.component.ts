@@ -24,8 +24,10 @@ export class HomeComponent implements OnInit {
       const usuario = JSON.parse(userData)[0]; 
       this.nombre = usuario.nombres;
   
-      const semanaPendiente = usuario.semanas.find((semana: { estado: number }) => semana.estado === 0);
-  
+      const semanaPendiente = Array.isArray(usuario.semanas) ? 
+      usuario.semanas.find((semana: { estado: number }) => semana.estado === 0) 
+      : null;
+   
       if (semanaPendiente) {
         this.estado = 0;  
       } else {

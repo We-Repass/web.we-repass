@@ -6,6 +6,10 @@
       <tr>
         <th>Nombre</th>
         <th>Apellidos</th>
+        <th>Semana 1</th>
+        <th>Semana 2</th>
+        <th>Semana 3</th>
+        <th>Semana 4</th>
         <th>Acciones</th>
       </tr>
     </thead>
@@ -13,9 +17,11 @@
       <tr *ngFor="let alumno of alumnos">
         <td>{{ alumno.nombre }}</td>
         <td>{{ alumno.apellidos }}</td>
-        <td>
-          <!-- Botón para eliminar (comentado por ahora) -->
-        </td>
+        <td>{{ obtenerNota(alumno, 1) }}</td>
+        <td>{{ obtenerNota(alumno, 2) }}</td>
+        <td>{{ obtenerNota(alumno, 3) }}</td>
+        <td>{{ obtenerNota(alumno, 4) }}</td>
+        <td></td>
       </tr>
     </tbody>
   </table>

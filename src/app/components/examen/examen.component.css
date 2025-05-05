@@ -83,3 +83,40 @@ h1 {
     justify-content: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
+/* Estilos para el mensaje "¡Todavía no tienes exámenes pendientes!" */
+.no-examenes {
+    background-color: #f3f3f3;
+    border: 2px solid #7F56D9; /* Color de borde */
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 50px;
+    text-align: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.no-examenes h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #7F56D9;
+    margin: 0;
+}
+
+.no-examenes p {
+    font-size: 16px;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
