@@ -21,6 +21,7 @@ export class VerExamenComponent  implements OnInit,OnDestroy  {
   timer: any;
   mostrarModal: boolean = false;
   estado: number = 0; 
+  mostrarModalCompleto: boolean = false;
 
   constructor(
     private examenService: ExamenService,
@@ -126,9 +127,7 @@ export class VerExamenComponent  implements OnInit,OnDestroy  {
     console.log('Examen enviado');
     console.log('Respuestas:', data);
   
-    this.router.navigate(['/examenes']).catch(err => {
-      console.error('Error al redirigir:', err);
-    });
+    this.mostrarModalCompleto = true;
   }
   
   cerrarModal() {
@@ -140,6 +139,12 @@ export class VerExamenComponent  implements OnInit,OnDestroy  {
     if (this.timer) {
       clearInterval(this.timer);
     }
+    
+  }
+  finalizarExamen() {
+    this.mostrarModalCompleto = false;
+
+    this.router.navigate(['/examenes']); 
   }
 
 }

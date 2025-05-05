@@ -2,6 +2,9 @@
 
 <div class="main-content">
     <div class="semanas-container">
+        <div *ngIf="!hayExamenesPendientes" class="no-examenes">
+            <h2>¡Todavía no tienes exámenes pendientes!</h2>
+        </div>
         <div *ngFor="let semana of semanas">
             <h2>{{ 'Semana ' + semana.idsemana }}</h2>
             <div class="examen-wrapper" *ngIf="semana.estado === 0">
