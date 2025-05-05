@@ -39,3 +39,12 @@
   </div>
 </div>
 
+<div *ngIf="mostrarModalCompleto" class="modal-overlay">
+  <div class="modal-content">
+    <img class="icon" src="/assets/img/completo.png" alt="Examen Completo">
+    <h2>¡Examen Completo!</h2>
+    <p>Has enviado tu examen correctamente.</p>
+    <p>¡Gracias por tu participación!</p>
+    <button (click)="finalizarExamen()">FINALIZAR EXAMEN</button>
+  </div>
+</div>
